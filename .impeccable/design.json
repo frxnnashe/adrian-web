@@ -1,0 +1,327 @@
+{
+  "version": "1.0.0",
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-08T23:03:34Z",
+  "title": "Sistema de diseño: Adrián Ludovico",
+  "project": {
+    "name": "Adrián Ludovico — Kinesiología Cardiorrespiratoria",
+    "platform": "web",
+    "mode": "persuade",
+    "locale": "es-AR"
+  },
+  "seed": "e505c7d8",
+  "thesis": "Corredor de aire",
+  "tokens": {
+    "colors": {
+      "page": "#f4f5f7",
+      "surface": "#ffffff",
+      "surfaceStrong": "#e7ebef",
+      "ink": "#24323f",
+      "inkSoft": "#6a7c8c",
+      "accent": "#8e3f50",
+      "accentStrong": "#733140",
+      "clinicalBlue": "#6a7c8c",
+      "lightOnPanel": "#f4f5f7",
+      "warmWhite": "#fff9f8",
+      "line": "rgba(36, 50, 63, 0.16)",
+      "pageDark": "#171d23",
+      "surfaceDark": "#202a33",
+      "surfaceStrongDark": "#2c3944",
+      "inkDark": "#f4f5f7",
+      "inkSoftDark": "#b8c2ca",
+      "clinicalBlueDark": "#8fa0ad",
+      "panelDarkTheme": "#24323f",
+      "lineDark": "rgba(244, 245, 247, 0.17)"
+    },
+    "typography": {
+      "displayFamily": "Source Serif 4, Georgia, serif",
+      "bodyFamily": "Source Sans 3, sans-serif",
+      "display": "600 clamp(3.65rem, 6vw, 4.9rem) / 1 Source Serif 4, Georgia, serif",
+      "headline": "600 clamp(2.65rem, 5vw, 4.7rem) / 1.02 Source Serif 4, Georgia, serif",
+      "title": "600 clamp(1.55rem, 2.2vw, 2rem) / 1.1 Source Serif 4, Georgia, serif",
+      "body": "400 1rem / 1.6 Source Sans 3, sans-serif",
+      "label": "700 0.9rem / 1.18 Source Sans 3, sans-serif"
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "24px",
+      "2xl": "28px",
+      "3xl": "40px",
+      "4xl": "56px"
+    },
+    "radii": {
+      "logo": "14px",
+      "panel": "16px",
+      "pill": "999px",
+      "circle": "50%"
+    },
+    "layout": {
+      "container": "min(100% - 40px, 1380px)",
+      "containerMobile": "min(100% - 30px, 1380px)",
+      "headerHeight": "72px",
+      "headerHeightMobile": "66px"
+    }
+  },
+  "motion": {
+    "easeExpressive": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "stateTransition": "220ms ease",
+    "quickTransition": "180ms ease",
+    "reveal": {
+      "duration": "700ms",
+      "from": "opacity: 0; transform: translateY(28px); filter: blur(8px)",
+      "viewport": "once at 20% visibility"
+    },
+    "serviceSwap": {
+      "duration": "350ms",
+      "enter": "opacity: 0; transform: translateY(16px)",
+      "exit": "opacity: 0; transform: translateY(-10px)"
+    },
+    "journeySpring": {
+      "stiffness": 110,
+      "damping": 24,
+      "mass": 0.4
+    },
+    "orbits": [
+      "14s linear infinite clockwise",
+      "10s linear infinite counterclockwise"
+    ],
+    "reducedMotion": "Disable smooth scrolling; reduce transitions and animations to 0.01ms and one iteration; Motion components render without animated initial states; keep all content visible."
+  },
+  "sourceFiles": [
+    "PRODUCT.md",
+    "app/globals.css",
+    "app/layout.tsx",
+    "components/breath-journey.tsx",
+    "components/kinesiology-landing.tsx",
+    "components/navigation.tsx",
+    "components/reveal.tsx",
+    "components/service-explorer.tsx",
+    "docs/superpowers/specs/2026-10-08-adrian-kinesiologia-design.md"
+  ],
+  "extensions": {
+    "colorMeta": {
+      "page": {
+        "role": "neutral",
+        "displayName": "Aire celeste",
+        "canonical": "#eef6fb",
+        "tonalRamp": ["#10202d", "#203745", "#385264", "#557187", "#7895aa", "#9eb9cb", "#c7dce9", "#eef6fb"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Azul marino clínico",
+        "canonical": "#062a50",
+        "tonalRamp": ["#031326", "#062a50", "#17446e", "#356184", "#5b819d", "#86a4b9", "#b7cad7", "#edf6fb"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Coral activo",
+        "canonical": "#c9463a",
+        "tonalRamp": ["#35100d", "#641d18", "#8d2923", "#a9322b", "#c9463a", "#df7168", "#efa7a1", "#fbe1de"]
+      },
+      "clinical-blue": {
+        "role": "secondary",
+        "displayName": "Azul clínico",
+        "canonical": "#4b83b7",
+        "tonalRamp": ["#0c2032", "#173a59", "#28577e", "#3b70a0", "#4b83b7", "#78a9d4", "#abcbe5", "#e2f0fa"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display condensado",
+        "purpose": "Mensaje principal del hero."
+      },
+      "headline": {
+        "displayName": "Titular de sección",
+        "purpose": "Organiza cada pausa del recorrido."
+      },
+      "title": {
+        "displayName": "Título funcional",
+        "purpose": "Etapas, tarjetas, servicios y preguntas."
+      },
+      "body": {
+        "displayName": "Lectura clínica",
+        "purpose": "Explicaciones y orientación en lenguaje humano."
+      },
+      "label": {
+        "displayName": "Acción y navegación",
+        "purpose": "Botones, enlaces y selectores."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-main",
+        "value": "0 28px 70px rgba(33, 87, 132, 0.17)",
+        "purpose": "Imágenes y paneles de máxima jerarquía en tema claro."
+      },
+      {
+        "name": "ambient-main-dark",
+        "value": "0 28px 70px rgba(0, 6, 14, 0.34)",
+        "purpose": "Equivalente ambiental para tema oscuro."
+      },
+      {
+        "name": "action-coral",
+        "value": "0 14px 30px color-mix(in srgb, var(--accent) 26%, transparent)",
+        "purpose": "Acciones principales en reposo."
+      },
+      {
+        "name": "profile-subtle",
+        "value": "0 18px 50px color-mix(in srgb, var(--blue) 13%, transparent)",
+        "purpose": "Tarjetas informativas sin elevarlas en exceso."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-expressive",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Revelados, etapas y cambios de servicio."
+      },
+      {
+        "name": "state-standard",
+        "value": "220ms ease",
+        "purpose": "Botones, subrayados y acciones flotantes."
+      },
+      {
+        "name": "state-quick",
+        "value": "180ms ease",
+        "purpose": "Selectores, enlaces y menú móvil."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "navigation-stack",
+        "value": "980px"
+      },
+      {
+        "name": "mobile-layout",
+        "value": "760px"
+      },
+      {
+        "name": "compact-phone",
+        "value": "430px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal para iniciar una consulta.",
+      "html": "<button class=\"ds-button-primary\">Solicitar turno</button>",
+      "css": ".ds-button-primary { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 0; border-radius: 999px; background: var(--accent, #c9463a); color: #fff9f8; font: 800 0.94rem Archivo, sans-serif; box-shadow: 0 14px 30px color-mix(in srgb, var(--accent, #c9463a) 26%, transparent); transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease; } .ds-button-primary:hover { background: var(--accent-strong, #a9322b); transform: translateY(-2px); box-shadow: 0 18px 34px color-mix(in srgb, var(--accent, #c9463a) 32%, transparent); } .ds-button-primary:active { transform: translateY(1px) scale(0.98); } .ds-button-primary:focus-visible { outline: 3px solid var(--accent, #c9463a); outline-offset: 4px; }"
+    },
+    {
+      "name": "Botón claro",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "CTA sobre la banda coral de cierre.",
+      "html": "<button class=\"ds-button-light\">Solicitar turno</button>",
+      "css": ".ds-button-light { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 0; border-radius: 999px; background: #fff9f8; color: #8f241f; font: 800 0.94rem Archivo, sans-serif; box-shadow: 0 14px 32px rgba(94, 18, 13, 0.2); transition: transform 220ms ease, background 220ms ease; } .ds-button-light:hover { background: #f4e7e4; transform: translateY(-2px); } .ds-button-light:active { transform: translateY(1px) scale(0.98); } .ds-button-light:focus-visible { outline: 3px solid #fff9f8; outline-offset: 4px; }"
+    },
+    {
+      "name": "Enlace de navegación",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Ancla de sección con señal coral progresiva.",
+      "html": "<a class=\"ds-nav-link\" href=\"#servicios\">Servicios</a>",
+      "css": ".ds-nav-link { position: relative; color: var(--ink-soft, #46637d); font: 700 0.9rem Archivo, sans-serif; text-decoration: none; } .ds-nav-link::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 2px; border-radius: 999px; background: var(--accent, #c9463a); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; } .ds-nav-link:hover::after { transform: scaleX(1); } .ds-nav-link:focus-visible { outline: 3px solid var(--accent, #c9463a); outline-offset: 4px; }"
+    },
+    {
+      "name": "Selector de servicio activo",
+      "kind": "custom",
+      "refersTo": "service-selector-active",
+      "description": "Control accesible que identifica la especialidad seleccionada.",
+      "html": "<button class=\"ds-service-selector\" aria-pressed=\"true\"><span class=\"ds-service-icon\" aria-hidden=\"true\">●</span><span>Rehabilitación</span></button>",
+      "css": ".ds-service-selector { min-height: 74px; display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: center; gap: 12px; width: 100%; padding: 12px 10px; border: 0; border-bottom: 1px solid var(--line, rgba(6, 42, 80, 0.16)); background: transparent; color: var(--ink, #062a50); font: 750 1rem Archivo, sans-serif; text-align: left; transition: color 180ms ease, transform 180ms ease; } .ds-service-selector:hover { transform: translateX(4px); } .ds-service-selector:focus-visible { outline: 3px solid var(--accent, #c9463a); outline-offset: 4px; } .ds-service-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: var(--accent, #c9463a); color: #fff9f8; }"
+    },
+    {
+      "name": "Panel de servicio",
+      "kind": "card",
+      "refersTo": "panel-dark",
+      "description": "Superficie de máxima autoridad para explicar la selección activa.",
+      "html": "<article class=\"ds-service-panel\"><h3>Rehabilitación respiratoria</h3><p>Un plan claro y adaptado a cada etapa.</p></article>",
+      "css": ".ds-service-panel { min-height: 300px; padding: clamp(34px, 6vw, 76px); border-radius: var(--radius, 16px); background: var(--dark-panel, #062a50); color: var(--light-on-panel, #eef6fb); box-shadow: var(--shadow, 0 28px 70px rgba(33, 87, 132, 0.17)); } .ds-service-panel h3 { max-width: 13ch; margin: 0 0 22px; color: inherit; font: 600 clamp(2.45rem, 5vw, 4.5rem) / 1 Barlow Condensed, sans-serif; } .ds-service-panel p { max-width: 55ch; margin: 0; color: color-mix(in srgb, var(--light-on-panel, #eef6fb) 78%, transparent); font: 400 1.03rem / 1.6 Archivo, sans-serif; }"
+    },
+    {
+      "name": "Tarjeta de perfil",
+      "kind": "card",
+      "refersTo": "profile-card",
+      "description": "Credencial profesional sobria dentro del recorrido editorial.",
+      "html": "<article class=\"ds-profile-card\"><strong>Lic. Adrián Javier Ludovico</strong><span>Kinesiólogo Cardiorrespiratorio</span><p>Matrícula profesional N.º 675</p></article>",
+      "css": ".ds-profile-card { display: grid; gap: 18px; padding: 28px; border-radius: var(--radius, 16px); background: var(--surface, #f8fbfd); color: var(--ink, #062a50); box-shadow: 0 18px 50px color-mix(in srgb, var(--blue, #4b83b7) 13%, transparent); } .ds-profile-card strong { font: 600 1.45rem / 1.18 Barlow Condensed, sans-serif; } .ds-profile-card span { color: var(--ink-soft, #46637d); font: 400 1rem / 1.6 Archivo, sans-serif; } .ds-profile-card p { margin: 0; padding-top: 18px; border-top: 1px solid var(--line, rgba(6, 42, 80, 0.16)); color: var(--ink-soft, #46637d); font: 400 0.88rem / 1.6 Archivo, sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Corredor de aire",
+    "overview": "La interfaz expresa el cuidado respiratorio como una trayectoria continua: amplia, respirable y orientada. El fondo celeste abre espacio; el azul marino aporta estructura clínica; el coral marca acciones, hitos y pulsos sin convertir la experiencia en una alarma. La composición equilibra autoridad profesional y cercanía humana con una densidad deliberadamente baja. La forma distintiva no es un adorno aislado, sino un sistema de recorridos: órbitas en el hero, una línea de progreso entre UTI, consultorio y domicilio, listas secuenciales y paneles que guían la atención. El movimiento explica continuidad y cambio de contexto; nunca sustituye el contenido ni bloquea la interacción.",
+    "keyCharacteristics": [
+      "Superficies claras y aireadas con paneles azul marino de contraste puntual.",
+      "Coral reservado para acción, foco, selección e hitos clínicos.",
+      "Titulares condensados y firmes; texto corrido abierto y legible.",
+      "Recorridos lineales, círculos y órbitas como gramática de respiración.",
+      "Movimiento expresivo con degradación completa para movimiento reducido.",
+      "Jerarquía directa: comprender el enfoque, reconocer el servicio y contactar."
+    ],
+    "rules": [
+      {
+        "name": "The One Coral Voice Rule",
+        "body": "El coral es el único acento de acción; no introducir otros colores saturados para competir con CTA, foco o selección.",
+        "section": "colors"
+      },
+      {
+        "name": "The Clinical Contrast Rule",
+        "body": "Las superficies oscuras son episodios de énfasis y lectura concentrada, no el fondo dominante de la página clara.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensed Hierarchy Rule",
+        "body": "Barlow Condensed organiza y señala; Archivo explica y permite actuar. No usar la condensada en párrafos largos.",
+        "section": "typography"
+      },
+      {
+        "name": "The Human Clinical Rule",
+        "body": "Priorizar frases cortas, lenguaje comprensible y pesos firmes antes que mayúsculas, tracking amplio o estética hospitalaria impersonal.",
+        "section": "typography"
+      },
+      {
+        "name": "The Breath Before Density Rule",
+        "body": "Cada grupo necesita espacio para ser comprendido; no llenar vacíos con tarjetas, métricas o decoración no respaldada.",
+        "section": "layout"
+      },
+      {
+        "name": "The Continuous Path Rule",
+        "body": "Cuando una secuencia cambia de eje en móvil, debe conservar el orden, los hitos y la relación visual entre pasos.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ambient, Not Floating Rule",
+        "body": "Las sombras deben sentirse como difusión de aire y no como cajas suspendidas; evitar contornos oscuros o múltiples niveles simultáneos.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Soft Geometry Rule",
+        "body": "Usar una sola familia de radios y círculos; no mezclar blobs arbitrarios, esquinas excesivamente redondas ni ornamentación clínica genérica.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do usar coral solo para acción, selección, foco e hitos que requieren atención.",
+      "Do mantener la secuencia UTI → consultorio → domicilio y adaptar su eje sin alterar su significado.",
+      "Do conservar foco visible, controles nativos, etiquetas concretas y estados aria-expanded, aria-pressed o aria-live según corresponda.",
+      "Do respetar prefers-color-scheme, prefers-reduced-motion y prefers-reduced-transparency sin perder contenido ni función.",
+      "Do reservar dimensiones de imágenes, limitar el texto y sostener contraste WCAG AA.",
+      "Do usar movimiento para explicar entrada, progreso, selección o continuidad."
+    ],
+    "donts": [
+      "Don't inventar testimonios, métricas, fotografías del profesional ni datos de contacto.",
+      "Don't introducir gradientes multicolor, neón, glassmorphism generalizado o acentos saturados adicionales.",
+      "Don't usar sombras duras, tarjetas para cada fragmento o radios ajenos a la familia establecida.",
+      "Don't animar layout, bloquear el scroll ni depender del movimiento para comprender el recorrido.",
+      "Don't ocultar foco, reducir áreas táctiles por debajo de 44 px ni reemplazar controles semánticos por elementos genéricos.",
+      "Don't presentar la ilustración editorial como fotografía de Adrián."
+    ]
+  }
+}

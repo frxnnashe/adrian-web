@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+coverage/
+.env*
+!.env.example
+.docx-review/
+.impeccable/review/
+palette-options/
+typography-options/
+.qodo/
+tsconfig.tsbuildinfo
