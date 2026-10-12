@@ -2,25 +2,25 @@
 name: "Adrián Ludovico — Kinesiología Cardiorrespiratoria"
 description: "Sistema clínico cercano que convierte el cuidado respiratorio en un corredor de aire continuo."
 colors:
-  page: "#f4f5f7"
+  page: "#f3f7fa"
   surface: "#ffffff"
-  surface-strong: "#e7ebef"
-  ink: "#24323f"
-  ink-soft: "#6a7c8c"
-  accent: "#8e3f50"
-  accent-strong: "#733140"
-  clinical-blue: "#6a7c8c"
-  light-on-panel: "#f4f5f7"
+  surface-strong: "#dfeaf1"
+  ink: "#153247"
+  ink-soft: "#4c7892"
+  accent: "#b8443c"
+  accent-strong: "#96362f"
+  clinical-blue: "#4c7892"
+  light-on-panel: "#f3f7fa"
   warm-white: "#fff9f8"
-  line: "rgba(36, 50, 63, 0.16)"
-  page-dark: "#171d23"
-  surface-dark: "#202a33"
-  surface-strong-dark: "#2c3944"
-  ink-dark: "#f4f5f7"
-  ink-soft-dark: "#b8c2ca"
-  clinical-blue-dark: "#8fa0ad"
-  panel-dark-theme: "#24323f"
-  line-dark: "rgba(244, 245, 247, 0.17)"
+  line: "rgba(21, 50, 71, 0.16)"
+  page-dark: "#0c1b27"
+  surface-dark: "#122b3b"
+  surface-strong-dark: "#1c3c50"
+  ink-dark: "#f3f7fa"
+  ink-soft-dark: "#afc9d8"
+  clinical-blue-dark: "#74a4bf"
+  panel-dark-theme: "#153247"
+  line-dark: "rgba(243, 247, 250, 0.17)"
 typography:
   display:
     fontFamily: "Source Serif 4, Georgia, serif"
@@ -179,11 +179,11 @@ La profundidad combina capas tonales con sombras ambientales azules. Las superfi
 
 ### Shadow Vocabulary
 
-- **Ambient principal** (`0 28px 70px rgba(33, 87, 132, 0.17)`): imágenes hero y paneles de máxima jerarquía en tema claro.
+- **Ambient principal** (`0 28px 70px rgba(21, 50, 71, 0.16)`): imágenes hero y paneles de máxima jerarquía en tema claro.
 - **Ambient principal oscuro** (`0 28px 70px rgba(0, 6, 14, 0.34)`): equivalente del tema oscuro.
 - **Acción coral** (`0 14px 30px color-mix(in srgb, var(--accent) 26%, transparent)`): botones principales; aumenta en hover.
 - **Tarjeta sutil** (`0 18px 50px color-mix(in srgb, var(--blue) 13%, transparent)`): credenciales y superficies informativas.
-- **Menú móvil** (`0 18px 36px rgba(4, 33, 60, 0.12)`): separa el desplegable del contenido.
+- **Menú móvil** (`0 18px 36px rgba(21, 50, 71, 0.12)`): separa el desplegable del contenido.
 
 **The Ambient, Not Floating Rule.** Las sombras deben sentirse como difusión de aire y no como cajas suspendidas; evitar contornos oscuros o múltiples niveles simultáneos.
 

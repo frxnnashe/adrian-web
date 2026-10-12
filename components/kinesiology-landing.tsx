@@ -12,12 +12,18 @@ import { BreathJourney } from "@/components/breath-journey";
 import { Navigation } from "@/components/navigation";
 import { Reveal } from "@/components/reveal";
 import { ServiceExplorer } from "@/components/service-explorer";
+import { buildWhatsAppUrl } from "@/lib/contact";
 import {
   contactDetails,
   education,
   faqs,
   whatsappUrl,
 } from "@/lib/site";
+
+const developerWhatsappUrl = buildWhatsAppUrl(
+  "5493541221485",
+  "Hola Francisco, vi tu trabajo en la web de Adrián Ludovico y quisiera contactarte.",
+);
 
 export function KinesiologyLanding() {
   const availableContactDetails = [
@@ -247,7 +253,17 @@ export function KinesiologyLanding() {
             <strong>Adrián Javier Ludovico</strong>
             <span>Kinesiología y Fisioterapia Cardiorrespiratoria</span>
           </div>
-          <p>Información profesional. No reemplaza una evaluación médica.</p>
+          <div className="footer-meta">
+            <p>Información profesional. No reemplaza una evaluación médica.</p>
+            <a
+              className="developer-credit"
+              href={developerWhatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Desarrollado por Francisco Rocchia
+            </a>
+          </div>
         </div>
       </footer>
 

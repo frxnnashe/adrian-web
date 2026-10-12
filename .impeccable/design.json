@@ -13,25 +13,25 @@
   "thesis": "Corredor de aire",
   "tokens": {
     "colors": {
-      "page": "#f4f5f7",
+      "page": "#f3f7fa",
       "surface": "#ffffff",
-      "surfaceStrong": "#e7ebef",
-      "ink": "#24323f",
-      "inkSoft": "#6a7c8c",
-      "accent": "#8e3f50",
-      "accentStrong": "#733140",
-      "clinicalBlue": "#6a7c8c",
-      "lightOnPanel": "#f4f5f7",
+      "surfaceStrong": "#dfeaf1",
+      "ink": "#153247",
+      "inkSoft": "#4c7892",
+      "accent": "#b8443c",
+      "accentStrong": "#96362f",
+      "clinicalBlue": "#4c7892",
+      "lightOnPanel": "#f3f7fa",
       "warmWhite": "#fff9f8",
-      "line": "rgba(36, 50, 63, 0.16)",
-      "pageDark": "#171d23",
-      "surfaceDark": "#202a33",
-      "surfaceStrongDark": "#2c3944",
-      "inkDark": "#f4f5f7",
-      "inkSoftDark": "#b8c2ca",
-      "clinicalBlueDark": "#8fa0ad",
-      "panelDarkTheme": "#24323f",
-      "lineDark": "rgba(244, 245, 247, 0.17)"
+      "line": "rgba(21, 50, 71, 0.16)",
+      "pageDark": "#0c1b27",
+      "surfaceDark": "#122b3b",
+      "surfaceStrongDark": "#1c3c50",
+      "inkDark": "#f3f7fa",
+      "inkSoftDark": "#afc9d8",
+      "clinicalBlueDark": "#74a4bf",
+      "panelDarkTheme": "#153247",
+      "lineDark": "rgba(243, 247, 250, 0.17)"
     },
     "typography": {
       "displayFamily": "Source Serif 4, Georgia, serif",
@@ -106,31 +106,31 @@
       "page": {
         "role": "neutral",
         "displayName": "Aire celeste",
-        "canonical": "#eef6fb",
-        "tonalRamp": ["#10202d", "#203745", "#385264", "#557187", "#7895aa", "#9eb9cb", "#c7dce9", "#eef6fb"]
+        "canonical": "#f3f7fa",
+        "tonalRamp": ["#0c1b27", "#153247", "#2f5368", "#4c7892", "#74a4bf", "#afc9d8", "#dfeaf1", "#f3f7fa"]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Azul marino clínico",
-        "canonical": "#062a50",
-        "tonalRamp": ["#031326", "#062a50", "#17446e", "#356184", "#5b819d", "#86a4b9", "#b7cad7", "#edf6fb"]
+        "canonical": "#153247",
+        "tonalRamp": ["#091721", "#153247", "#274b61", "#416a82", "#688da3", "#93afbf", "#c4d5df", "#f3f7fa"]
       },
       "accent": {
         "role": "primary",
         "displayName": "Coral activo",
-        "canonical": "#c9463a",
-        "tonalRamp": ["#35100d", "#641d18", "#8d2923", "#a9322b", "#c9463a", "#df7168", "#efa7a1", "#fbe1de"]
+        "canonical": "#b8443c",
+        "tonalRamp": ["#35100d", "#641f1a", "#803029", "#96362f", "#b8443c", "#d9635b", "#eda19b", "#f7e3e1"]
       },
       "clinical-blue": {
         "role": "secondary",
         "displayName": "Azul clínico",
-        "canonical": "#4b83b7",
-        "tonalRamp": ["#0c2032", "#173a59", "#28577e", "#3b70a0", "#4b83b7", "#78a9d4", "#abcbe5", "#e2f0fa"]
+        "canonical": "#4c7892",
+        "tonalRamp": ["#102735", "#1e4155", "#315e75", "#4c7892", "#74a4bf", "#9fc3d6", "#c9dfe9", "#eef6fa"]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display condensado",
+        "displayName": "Display editorial",
         "purpose": "Mensaje principal del hero."
       },
       "headline": {
@@ -211,7 +211,7 @@
       "refersTo": "button-primary",
       "description": "Acción principal para iniciar una consulta.",
       "html": "<button class=\"ds-button-primary\">Solicitar turno</button>",
-      "css": ".ds-button-primary { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 0; border-radius: 999px; background: var(--accent, #c9463a); color: #fff9f8; font: 800 0.94rem Archivo, sans-serif; box-shadow: 0 14px 30px color-mix(in srgb, var(--accent, #c9463a) 26%, transparent); transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease; } .ds-button-primary:hover { background: var(--accent-strong, #a9322b); transform: translateY(-2px); box-shadow: 0 18px 34px color-mix(in srgb, var(--accent, #c9463a) 32%, transparent); } .ds-button-primary:active { transform: translateY(1px) scale(0.98); } .ds-button-primary:focus-visible { outline: 3px solid var(--accent, #c9463a); outline-offset: 4px; }"
+      "css": ".ds-button-primary { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 0; border-radius: 999px; background: var(--accent, #b8443c); color: #fff9f8; font: 800 0.94rem Source Sans 3, sans-serif; box-shadow: 0 14px 30px color-mix(in srgb, var(--accent, #b8443c) 26%, transparent); transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease; } .ds-button-primary:hover { background: var(--accent-strong, #96362f); transform: translateY(-2px); box-shadow: 0 18px 34px color-mix(in srgb, var(--accent, #b8443c) 32%, transparent); } .ds-button-primary:active { transform: translateY(1px) scale(0.98); } .ds-button-primary:focus-visible { outline: 3px solid var(--accent, #b8443c); outline-offset: 4px; }"
     },
     {
       "name": "Botón claro",
@@ -219,7 +219,7 @@
       "refersTo": "button-light",
       "description": "CTA sobre la banda coral de cierre.",
       "html": "<button class=\"ds-button-light\">Solicitar turno</button>",
-      "css": ".ds-button-light { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 0; border-radius: 999px; background: #fff9f8; color: #8f241f; font: 800 0.94rem Archivo, sans-serif; box-shadow: 0 14px 32px rgba(94, 18, 13, 0.2); transition: transform 220ms ease, background 220ms ease; } .ds-button-light:hover { background: #f4e7e4; transform: translateY(-2px); } .ds-button-light:active { transform: translateY(1px) scale(0.98); } .ds-button-light:focus-visible { outline: 3px solid #fff9f8; outline-offset: 4px; }"
+      "css": ".ds-button-light { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border: 0; border-radius: 999px; background: #fff9f8; color: #96362f; font: 800 0.94rem Source Sans 3, sans-serif; box-shadow: 0 14px 32px rgba(94, 18, 13, 0.2); transition: transform 220ms ease, background 220ms ease; } .ds-button-light:hover { background: #f7e3e1; transform: translateY(-2px); } .ds-button-light:active { transform: translateY(1px) scale(0.98); } .ds-button-light:focus-visible { outline: 3px solid #fff9f8; outline-offset: 4px; }"
     },
     {
       "name": "Enlace de navegación",
@@ -227,7 +227,7 @@
       "refersTo": "navigation-link",
       "description": "Ancla de sección con señal coral progresiva.",
       "html": "<a class=\"ds-nav-link\" href=\"#servicios\">Servicios</a>",
-      "css": ".ds-nav-link { position: relative; color: var(--ink-soft, #46637d); font: 700 0.9rem Archivo, sans-serif; text-decoration: none; } .ds-nav-link::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 2px; border-radius: 999px; background: var(--accent, #c9463a); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; } .ds-nav-link:hover::after { transform: scaleX(1); } .ds-nav-link:focus-visible { outline: 3px solid var(--accent, #c9463a); outline-offset: 4px; }"
+      "css": ".ds-nav-link { position: relative; color: var(--ink-soft, #4c7892); font: 700 0.9rem Source Sans 3, sans-serif; text-decoration: none; } .ds-nav-link::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 2px; border-radius: 999px; background: var(--accent, #b8443c); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; } .ds-nav-link:hover::after { transform: scaleX(1); } .ds-nav-link:focus-visible { outline: 3px solid var(--accent, #b8443c); outline-offset: 4px; }"
     },
     {
       "name": "Selector de servicio activo",
@@ -235,7 +235,7 @@
       "refersTo": "service-selector-active",
       "description": "Control accesible que identifica la especialidad seleccionada.",
       "html": "<button class=\"ds-service-selector\" aria-pressed=\"true\"><span class=\"ds-service-icon\" aria-hidden=\"true\">●</span><span>Rehabilitación</span></button>",
-      "css": ".ds-service-selector { min-height: 74px; display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: center; gap: 12px; width: 100%; padding: 12px 10px; border: 0; border-bottom: 1px solid var(--line, rgba(6, 42, 80, 0.16)); background: transparent; color: var(--ink, #062a50); font: 750 1rem Archivo, sans-serif; text-align: left; transition: color 180ms ease, transform 180ms ease; } .ds-service-selector:hover { transform: translateX(4px); } .ds-service-selector:focus-visible { outline: 3px solid var(--accent, #c9463a); outline-offset: 4px; } .ds-service-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: var(--accent, #c9463a); color: #fff9f8; }"
+      "css": ".ds-service-selector { min-height: 74px; display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: center; gap: 12px; width: 100%; padding: 12px 10px; border: 0; border-bottom: 1px solid var(--line, rgba(21, 50, 71, 0.16)); background: transparent; color: var(--ink, #153247); font: 750 1rem Source Sans 3, sans-serif; text-align: left; transition: color 180ms ease, transform 180ms ease; } .ds-service-selector:hover { transform: translateX(4px); } .ds-service-selector:focus-visible { outline: 3px solid var(--accent, #b8443c); outline-offset: 4px; } .ds-service-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: var(--accent, #b8443c); color: #fff9f8; }"
     },
     {
       "name": "Panel de servicio",
@@ -243,7 +243,7 @@
       "refersTo": "panel-dark",
       "description": "Superficie de máxima autoridad para explicar la selección activa.",
       "html": "<article class=\"ds-service-panel\"><h3>Rehabilitación respiratoria</h3><p>Un plan claro y adaptado a cada etapa.</p></article>",
-      "css": ".ds-service-panel { min-height: 300px; padding: clamp(34px, 6vw, 76px); border-radius: var(--radius, 16px); background: var(--dark-panel, #062a50); color: var(--light-on-panel, #eef6fb); box-shadow: var(--shadow, 0 28px 70px rgba(33, 87, 132, 0.17)); } .ds-service-panel h3 { max-width: 13ch; margin: 0 0 22px; color: inherit; font: 600 clamp(2.45rem, 5vw, 4.5rem) / 1 Barlow Condensed, sans-serif; } .ds-service-panel p { max-width: 55ch; margin: 0; color: color-mix(in srgb, var(--light-on-panel, #eef6fb) 78%, transparent); font: 400 1.03rem / 1.6 Archivo, sans-serif; }"
+      "css": ".ds-service-panel { min-height: 300px; padding: clamp(34px, 6vw, 76px); border-radius: var(--radius, 16px); background: var(--dark-panel, #153247); color: var(--light-on-panel, #f3f7fa); box-shadow: var(--shadow, 0 28px 70px rgba(21, 50, 71, 0.16)); } .ds-service-panel h3 { max-width: 13ch; margin: 0 0 22px; color: inherit; font: 600 clamp(2.45rem, 5vw, 4.5rem) / 1.1 Source Serif 4, Georgia, serif; } .ds-service-panel p { max-width: 55ch; margin: 0; color: color-mix(in srgb, var(--light-on-panel, #f3f7fa) 78%, transparent); font: 400 1.03rem / 1.6 Source Sans 3, sans-serif; }"
     },
     {
       "name": "Tarjeta de perfil",
@@ -251,7 +251,7 @@
       "refersTo": "profile-card",
       "description": "Credencial profesional sobria dentro del recorrido editorial.",
       "html": "<article class=\"ds-profile-card\"><strong>Lic. Adrián Javier Ludovico</strong><span>Kinesiólogo Cardiorrespiratorio</span><p>Matrícula profesional N.º 675</p></article>",
-      "css": ".ds-profile-card { display: grid; gap: 18px; padding: 28px; border-radius: var(--radius, 16px); background: var(--surface, #f8fbfd); color: var(--ink, #062a50); box-shadow: 0 18px 50px color-mix(in srgb, var(--blue, #4b83b7) 13%, transparent); } .ds-profile-card strong { font: 600 1.45rem / 1.18 Barlow Condensed, sans-serif; } .ds-profile-card span { color: var(--ink-soft, #46637d); font: 400 1rem / 1.6 Archivo, sans-serif; } .ds-profile-card p { margin: 0; padding-top: 18px; border-top: 1px solid var(--line, rgba(6, 42, 80, 0.16)); color: var(--ink-soft, #46637d); font: 400 0.88rem / 1.6 Archivo, sans-serif; }"
+      "css": ".ds-profile-card { display: grid; gap: 18px; padding: 28px; border-radius: var(--radius, 16px); background: var(--surface, #ffffff); color: var(--ink, #153247); box-shadow: 0 18px 50px color-mix(in srgb, var(--blue, #4c7892) 13%, transparent); } .ds-profile-card strong { font: 600 1.45rem / 1.18 Source Serif 4, Georgia, serif; } .ds-profile-card span { color: var(--ink-soft, #4c7892); font: 400 1rem / 1.6 Source Sans 3, sans-serif; } .ds-profile-card p { margin: 0; padding-top: 18px; border-top: 1px solid var(--line, rgba(21, 50, 71, 0.16)); color: var(--ink-soft, #4c7892); font: 400 0.88rem / 1.6 Source Sans 3, sans-serif; }"
     }
   ],
   "narrative": {

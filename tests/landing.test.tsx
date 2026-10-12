@@ -23,6 +23,19 @@ describe("KinesiologyLanding", () => {
     expect(contactLink).toHaveAttribute("href", expect.stringContaining("https://wa.me/"));
   });
 
+  it("acredita el desarrollo y enlaza al WhatsApp de Francisco Rocchia", () => {
+    render(<KinesiologyLanding />);
+
+    const developerLink = screen.getByRole("link", {
+      name: /desarrollado por francisco rocchia/i,
+    });
+
+    expect(developerLink).toHaveAttribute(
+      "href",
+      expect.stringContaining("https://wa.me/5493541221485"),
+    );
+  });
+
   it("permite explorar los seis servicios y actualiza el detalle seleccionado", async () => {
     render(<KinesiologyLanding />);
 
