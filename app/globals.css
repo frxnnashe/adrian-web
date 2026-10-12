@@ -37,6 +37,7 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 24px);
 }
@@ -1168,6 +1169,11 @@ p {
     width: calc(100% - 18px);
   }
 
+  .brand-figure::before {
+    inset: 7% 0 -6% 7%;
+    transform: rotate(-3deg);
+  }
+
   .service-explorer {
     grid-template-columns: 1fr;
   }
@@ -1195,9 +1201,14 @@ p {
   }
 
   .service-detail {
+    min-width: 0;
     position: static;
     min-height: 520px;
     padding: 34px 28px;
+  }
+
+  .service-detail h3 {
+    overflow-wrap: anywhere;
   }
 
   .detail-icon {
@@ -1242,6 +1253,14 @@ p {
 
   .button {
     padding-inline: 18px;
+  }
+
+  .service-detail {
+    padding: 30px 22px;
+  }
+
+  .service-detail h3 {
+    font-size: 2rem;
   }
 
   .education-item,
