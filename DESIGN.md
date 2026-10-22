@@ -109,7 +109,7 @@ La forma distintiva no es un adorno aislado, sino un sistema de recorridos: órb
 - Coral reservado para acción, foco, selección e hitos clínicos.
 - Titulares condensados y firmes; texto corrido abierto y legible.
 - Recorridos lineales, círculos y órbitas como gramática de respiración.
-- Movimiento expresivo con degradación completa para movimiento reducido.
+- Movimiento expresivo con degradación para movimiento reducido, excepto la escena de pulmones por decisión explícita del cliente.
 - Jerarquía directa: comprender el enfoque, reconocer el servicio y contactar.
 
 ## Colors
@@ -238,13 +238,13 @@ Usa `details` y `summary` nativos, divisores suaves y un indicador circular +/�
 
 El hero tiene una escena de pulmones tridimensionales construida con `THREE.Points`: la nube dispersa se reúne en aproximadamente 2,8 segundos y luego sostiene una rotación leve en Y y una expansión respiratoria mínima. El encuadre acerca los pulmones un 15–17 % respecto de la versión inicial. Las partículas de tejido usan azul y cian vivos; la vía aérea se distingue en coral luminoso, con tokens propios de la escena. El cursor modifica la orientación dentro de límites acotados, únicamente con mouse. La escena no muestra controles y reinicia la formación al volver a entrar en el viewport, a partir de un 15 % de visibilidad.
 
-El motor 3D carga de forma diferida al entrar en pantalla. Usa 8.800 puntos en escritorio y 4.400 en pantallas de hasta 760 px, con densidad de píxel limitada. Se suspende fuera del viewport o con la pestaña oculta y libera geometría, material, observadores y renderer al desmontarse. Una silueta SVG determinista mantiene el contenido visible durante la carga, ante falta de WebGL y con movimiento reducido.
+El motor 3D carga de forma diferida al entrar en pantalla. Usa 8.800 puntos en escritorio y 4.400 en pantallas de hasta 760 px, con densidad de píxel limitada. Se suspende fuera del viewport o con la pestaña oculta y libera geometría, material, observadores y renderer al desmontarse. Una silueta SVG determinista mantiene el contenido visible durante la carga y ante falta de WebGL. Por solicitud explícita del cliente, esta escena se anima también con movimiento reducido; el resto de la web conserva esa preferencia.
 
 El retrato transparente aprobado del profesional se ubica junto a “Un profesional que entiende todo el recorrido”, antes de la secuencia UTI → consultorio → domicilio. Usa WebP con alfa, conserva su proporción completa y se apila bajo el texto en móvil.
 
 El canvas de partículas ocupa todo el hero, de borde a borde, incluyendo el área detrás del titular. La nube inicia fuera de los cuatro extremos y converge en el encuadre aprobado de los pulmones; una proyección extendida conserva su posición y escala. El texto y sus enlaces quedan por encima del canvas, que no intercepta clics. La densidad de píxel limita el render a un máximo aproximado de tres millones de píxeles.
 
-La entrada base revela contenido con opacidad, desplazamiento de 28 px y blur de 8 px durante 700 ms. Los cambios de servicio usan 350 ms con curva expresiva `cubic-bezier(0.16, 1, 0.3, 1)`. La trayectoria usa un spring de rigidez 110, amortiguación 24 y masa 0.4. Los pulmones se ensamblan durante 2,8 s y mantienen una respiración y rotación suaves, solo cuando no se solicita reducción.
+La entrada base revela contenido con opacidad, desplazamiento de 28 px y blur de 8 px durante 700 ms. Los cambios de servicio usan 350 ms con curva expresiva `cubic-bezier(0.16, 1, 0.3, 1)`. La trayectoria usa un spring de rigidez 110, amortiguación 24 y masa 0.4. Los pulmones se ensamblan durante 2,8 s y mantienen una respiración y rotación suaves mientras están visibles.
 
 Con `prefers-reduced-motion: reduce`, el scroll suave se desactiva, las animaciones pasan a una sola iteración y sus duraciones y transiciones se reducen a 0.01 ms. `MotionConfig` aplica la preferencia del usuario después de una hidratación determinista; la trayectoria se presenta completa y el contenido permanece visible.
 
@@ -255,7 +255,7 @@ Con `prefers-reduced-motion: reduce`, el scroll suave se desactiva, las animacio
 - **Do** usar coral solo para acción, selección, foco e hitos que requieren atención.
 - **Do** mantener la secuencia UTI → consultorio → domicilio y adaptar su eje sin alterar su significado.
 - **Do** conservar foco visible, controles nativos, etiquetas concretas y estados `aria-expanded`, `aria-pressed` o `aria-live` según corresponda.
-- **Do** respetar `prefers-color-scheme`, `prefers-reduced-motion` y `prefers-reduced-transparency` sin perder contenido ni función.
+- **Do** respetar `prefers-color-scheme`, `prefers-reduced-motion` y `prefers-reduced-transparency` sin perder contenido ni función, con la excepción autorizada de los pulmones.
 - **Do** reservar dimensiones de imágenes, limitar el texto y sostener contraste WCAG AA.
 - **Do** usar movimiento para explicar entrada, progreso, selección o continuidad.
 

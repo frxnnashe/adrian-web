@@ -18,14 +18,13 @@ export function LungParticles() {
     let alive = true;
     let loading = false;
     let inView = false;
-    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
     const start = async () => {
-      if (!alive || loading || sceneRef.current || !inView || reducedMotion.matches) return;
+      if (!alive || loading || sceneRef.current || !inView) return;
       loading = true;
       try {
         const { createLungScene } = await import("@/lib/lung-scene");
-        if (!alive || reducedMotion.matches) return;
+        if (!alive) return;
         sceneRef.current = createLungScene(canvas);
         sceneRef.current.setVisible(inView);
         setReady(true);
@@ -45,21 +44,9 @@ export function LungParticles() {
     }, { threshold: [0, 0.15] });
     observer.observe(canvas.parentElement!);
 
-    const changePreference = () => {
-      if (reducedMotion.matches) {
-        sceneRef.current?.dispose();
-        sceneRef.current = null;
-        setReady(false);
-      } else {
-        void start();
-      }
-    };
-    reducedMotion.addEventListener("change", changePreference);
-
     return () => {
       alive = false;
       observer.disconnect();
-      reducedMotion.removeEventListener("change", changePreference);
       sceneRef.current?.dispose();
       sceneRef.current = null;
     };

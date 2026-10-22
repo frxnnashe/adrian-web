@@ -11,12 +11,13 @@ const controller = {
   setVisible: vi.fn(), replay: vi.fn(), dispose: vi.fn(),
 };
 let onIntersect: IntersectionObserverCallback;
-let onPreferenceChange: () => void;
+let onPreferenceChange = () => {};
 let reduced = false;
 
 beforeEach(() => {
   vi.clearAllMocks();
   reduced = false;
+  onPreferenceChange = () => {};
   vi.mocked(createLungScene).mockReturnValue(controller);
   vi.stubGlobal("IntersectionObserver", class {
     constructor(callback: IntersectionObserverCallback) { onIntersect = callback; }
@@ -81,22 +82,28 @@ describe("pulmones de partículas", () => {
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
-  it("muestra una alternativa estática cuando se solicita movimiento reducido", async () => {
+  it("anima y repite la formación aunque se solicite movimiento reducido", async () => {
     reduced = true;
     render(<LungParticles />);
     await updateVisibility(true);
-    expect(createLungScene).not.toHaveBeenCalled();
-    expect(screen.queryByRole("button", { name: "Pausar animación" })).not.toBeInTheDocument();
+    const visual = screen.getByRole("img", { name: /pulmones tridimensionales/i }).parentElement;
+    await waitFor(() => expect(visual).toHaveAttribute("data-ready", "true"));
+    await updateVisibility(false);
+    await updateVisibility(true);
+    expect(controller.replay).toHaveBeenCalledOnce();
+    expect(controller.setVisible).toHaveBeenLastCalledWith(true);
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
-  it("detiene y libera la escena al cambiar la preferencia o desmontar", async () => {
+  it("mantiene la animación al cambiar la preferencia y libera la escena al desmontar", async () => {
     const { unmount } = render(<LungParticles />);
     await updateVisibility(true);
     act(() => { reduced = true; onPreferenceChange(); });
-    expect(controller.dispose).toHaveBeenCalledTimes(1);
+    expect(controller.dispose).not.toHaveBeenCalled();
+    expect(screen.getByRole("img", { name: /pulmones tridimensionales/i }).parentElement).toHaveAttribute("data-ready", "true");
     act(() => { reduced = false; onPreferenceChange(); });
-    await waitFor(() => expect(createLungScene).toHaveBeenCalledTimes(2));
+    expect(createLungScene).toHaveBeenCalledTimes(1);
     unmount();
-    expect(controller.dispose).toHaveBeenCalledTimes(2);
+    expect(controller.dispose).toHaveBeenCalledOnce();
   });
 });
