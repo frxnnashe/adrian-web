@@ -6,6 +6,7 @@ import { renderToString } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { BreathJourney } from "@/components/breath-journey";
+import { LungParticles } from "@/components/lung-particles";
 import { Reveal } from "@/components/reveal";
 import { ServiceExplorer } from "@/components/service-explorer";
 
@@ -13,6 +14,7 @@ function AnimatedSections() {
   return (
     <>
       <Reveal>Contenido</Reveal>
+      <LungParticles />
       <BreathJourney />
       <ServiceExplorer />
     </>
@@ -63,7 +65,7 @@ describe("animated sections hydration", () => {
     });
 
     const hydrationErrors = consoleError.mock.calls.filter(([message]) =>
-      String(message).toLowerCase().includes("hydration"),
+      /hydration|hydrated|didn't match|did not match/i.test(String(message)),
     );
 
     expect(hydrationErrors).toHaveLength(0);

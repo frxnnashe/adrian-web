@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 
 import { BreathJourney } from "@/components/breath-journey";
+import { LungParticles } from "@/components/lung-particles";
 import { Navigation } from "@/components/navigation";
 import { Reveal } from "@/components/reveal";
 import { ServiceExplorer } from "@/components/service-explorer";
@@ -41,62 +42,64 @@ export function KinesiologyLanding() {
           aria-hidden="true"
           dangerouslySetInnerHTML={{
             __html:
-              "<!-- THESIS: El cuidado respiratorio se entiende como un corredor de aire continuo, no como una lista clínica. OWN-WORLD: Celeste respirable, azul marino estructural, coral activo, paneles suaves y trayectorias cinéticas. STORY: Comprender el enfoque, reconocer el servicio y solicitar un turno. FIRST VIEWPORT: Propuesta clara a la izquierda, sesión ilustrada a la derecha, CTA visible. FORM: Corredor de aire, dirección 6, seed e505c7d8. FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md -->",
+              "<!-- THESIS: El cuidado respiratorio se entiende como un corredor de aire continuo. OWN-WORLD: Celeste respirable, azul marino estructural, coral activo y trayectorias cinéticas. STORY: Comprender el enfoque, reconocer el servicio y solicitar un turno. FIRST VIEWPORT: Propuesta clara a la izquierda, pulmones tridimensionales de partículas a la derecha, CTA visible. FORM: Corredor de aire, dirección 6, seed e505c7d8. -->",
           }}
         />
 
-        <section className="hero section-shell" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <Reveal>
-              <h1 id="hero-title">Respirar mejor cambia tu manera de vivir.</h1>
-              <p className="hero-summary">
-                Atención especializada para recuperar capacidad, autonomía y
-                confianza en cada etapa de tu salud respiratoria.
-              </p>
-              <div className="hero-actions">
-                <a
-                  className="button"
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <WhatsappLogo size={22} weight="fill" />
-                  Solicitar turno
-                  <ArrowUpRight size={18} weight="bold" />
-                </a>
-                <a className="text-link" href="#servicios">
-                  Conocer servicios
-                  <ArrowDownRight size={18} weight="bold" />
-                </a>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal className="hero-visual" delay={0.12}>
-            <div className="air-orbit air-orbit-one" aria-hidden="true" />
-            <div className="air-orbit air-orbit-two" aria-hidden="true" />
-            <div className="hero-image-frame">
-              <Image
-                src="/images/rehabilitacion-respiratoria.webp"
-                alt="Ilustración de una sesión de rehabilitación respiratoria supervisada"
-                fill
-                sizes="(max-width: 840px) 100vw, 56vw"
-                priority
-              />
+        <section className="hero-section" aria-labelledby="hero-title">
+          <div className="hero section-shell">
+            <div className="hero-copy">
+              <Reveal>
+                <h1 id="hero-title">Respirar mejor cambia tu manera de vivir.</h1>
+                <p className="hero-summary">
+                  Atención especializada para recuperar capacidad, autonomía y
+                  confianza en cada etapa de tu salud respiratoria.
+                </p>
+                <div className="hero-actions">
+                  <a
+                    className="button"
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <WhatsappLogo size={22} weight="fill" />
+                    Solicitar turno
+                    <ArrowUpRight size={18} weight="bold" />
+                  </a>
+                  <a className="text-link" href="#servicios">
+                    Conocer servicios
+                    <ArrowDownRight size={18} weight="bold" />
+                  </a>
+                </div>
+              </Reveal>
             </div>
-            <p className="image-note">Ilustración de atención respiratoria</p>
-          </Reveal>
+
+            <div className="hero-visual">
+              <LungParticles />
+            </div>
+          </div>
         </section>
 
         <section className="continuity-section" id="enfoque">
           <div className="section-shell">
-            <Reveal className="section-heading compact-heading">
-              <h2>Un profesional que entiende todo el recorrido.</h2>
-              <p>
-                La salud respiratoria atraviesa distintos escenarios. Conocerlos
-                permite acompañar el presente y anticipar el cuidado que sigue.
-              </p>
-            </Reveal>
+            <div className="continuity-intro">
+              <Reveal className="section-heading compact-heading">
+                <h2>Un profesional que entiende todo el recorrido.</h2>
+                <p>
+                  La salud respiratoria atraviesa distintos escenarios. Conocerlos
+                  permite acompañar el presente y anticipar el cuidado que sigue.
+                </p>
+              </Reveal>
+              <Reveal className="professional-portrait" delay={0.1}>
+                <Image
+                  src="/images/adrian-ludovico-retrato.webp"
+                  alt="Lic. Adrián Javier Ludovico, kinesiólogo cardiorrespiratorio"
+                  width={1086}
+                  height={1448}
+                  sizes="(max-width: 760px) 90vw, 420px"
+                />
+              </Reveal>
+            </div>
             <BreathJourney />
           </div>
         </section>

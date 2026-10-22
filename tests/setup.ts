@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom/vitest";
 
 Object.defineProperty(window, "matchMedia", {
+  configurable: true,
   writable: true,
   value: (query: string) => ({
     matches: false,
@@ -35,6 +36,7 @@ class ResizeObserverStub implements ResizeObserver {
 }
 
 Object.defineProperty(globalThis, "IntersectionObserver", {
+  configurable: true,
   writable: true,
   value: IntersectionObserverStub,
 });
