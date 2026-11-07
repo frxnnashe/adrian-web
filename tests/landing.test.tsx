@@ -1,9 +1,29 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { KinesiologyLanding } from "@/components/kinesiology-landing";
 
 describe("KinesiologyLanding", () => {
+  it("invita a consultar horarios y turnos por WhatsApp sin mostrar avisos de datos pendientes", () => {
+    render(<KinesiologyLanding />);
+    const contact = screen.getByRole("heading", { name: "Tu consulta puede empezar con un mensaje." }).closest("section")!;
+    expect(within(contact).getByText(/consultá horarios de atención y disponibilidad de turnos por WhatsApp/i)).toBeInTheDocument();
+    expect(within(contact).queryByText(/se incorporarán cuando sean confirmados/i)).not.toBeInTheDocument();
+  });
+
+  it("presenta los textos corregidos por el cliente", () => {
+    render(<KinesiologyLanding />);
+    expect(screen.getByText(/confianza en cada etapa de las enfermedades respiratorias crónicas\./i)).toBeInTheDocument();
+    expect(screen.getByText(/acompañar el presente y anticipar los cuidados futuros\./i)).toBeInTheDocument();
+    expect(screen.getByText(/entender qué necesitás en todo momento\./i)).toBeInTheDocument();
+  });
+
+  it("sitúa las credenciales junto al logo y la capacitación permanente en la introducción de formación", () => {
+    render(<KinesiologyLanding />);
+    expect(screen.getByText(/Matrícula profesional N.º 675/i).closest(".approach-section")).not.toBeNull();
+    expect(screen.getByRole("heading", { name: "Capacitación permanente" }).closest(".formation-intro")).not.toBeNull();
+  });
+
   it("presenta la identidad profesional y una vía de contacto por WhatsApp", () => {
     render(<KinesiologyLanding />);
 

@@ -537,6 +537,16 @@ p {
   padding-block: clamp(100px, 14vw, 190px);
 }
 
+.professional-identity {
+  min-width: 0;
+}
+
+.professional-identity .profile-card {
+  position: relative;
+  width: min(100%, 420px);
+  margin: 24px auto 0;
+}
+
 .brand-figure {
   position: relative;
 }
@@ -799,8 +809,13 @@ p {
   margin-bottom: 0;
 }
 
-.education-continuous {
-  grid-template-columns: 90px minmax(0, 1fr);
+.formation-intro .education-continuous {
+  min-height: 0;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--line);
   border-bottom: 0;
 }
 

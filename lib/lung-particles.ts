@@ -73,6 +73,114 @@ function edgeDistance(x: number, y: number) {
   return minimum;
 }
 
+type Position = readonly [number, number, number];
+type BronchialBranch = {
+  start: Position;
+  control: Position;
+  end: Position;
+  radius: number;
+  terminal: boolean;
+};
+
+function pointOnBranch(branch: BronchialBranch, t: number): Position {
+  const a = (1 - t) ** 2;
+  const b = 2 * (1 - t) * t;
+  const c = t * t;
+  return [
+    a * branch.start[0] + b * branch.control[0] + c * branch.end[0],
+    a * branch.start[1] + b * branch.control[1] + c * branch.end[1],
+    a * branch.start[2] + b * branch.control[2] + c * branch.end[2],
+  ];
+}
+
+function createBronchialTree() {
+  const root: Position = [0, 0.72, 0.25];
+  const branches: BronchialBranch[] = [{
+    start: [0, 2.05, 0.22], control: [0, 1.3, 0.24], end: root,
+    radius: 0.075, terminal: false,
+  }];
+
+  for (const side of [-1, 1]) {
+    const position = (x: number, y: number, z = 0.28): Position => [
+      side * x * 0.76, root[1] + (y - root[1]) * 0.64, z,
+    ];
+    const primary: BronchialBranch = {
+      start: root, control: position(0.16, 0.58), end: position(0.58, 0.24),
+      radius: 0.065, terminal: false,
+    };
+    const descending: BronchialBranch = {
+      start: primary.end, control: position(0.87, -0.33, 0.24), end: position(0.51, -0.97, 0.2),
+      radius: 0.05, terminal: false,
+    };
+    branches.push(primary, descending);
+
+    const addLobarBranch = (
+      parent: BronchialBranch, t: number, control: Position, end: Position, tips: Position[],
+    ) => {
+      branches.push({ start: pointOnBranch(parent, t), control, end, radius: 0.025, terminal: false });
+      for (const tip of tips) {
+        branches.push({
+          start: end,
+          control: [end[0] * 0.7 + tip[0] * 0.3, end[1] * 0.25 + tip[1] * 0.75, (end[2] + tip[2]) / 2],
+          end: tip, radius: 0.013, terminal: false,
+        });
+        const direction = tip[1] >= end[1] ? 1 : -1;
+        for (const fork of [-1, 1]) {
+          branches.push({
+            start: tip,
+            control: [tip[0] + side * fork * 0.035, tip[1] + direction * 0.035, tip[2]],
+            end: [tip[0] + side * fork * 0.07, tip[1] + direction * 0.07, tip[2] + fork * 0.035],
+            radius: 0.008, terminal: true,
+          });
+        }
+      }
+    };
+
+    addLobarBranch(primary, 0.65, position(0.5, 0.66), position(0.47, 1.02), [
+      position(0.36, 1.33, 0.14), position(0.68, 1.19, 0.34),
+    ]);
+    addLobarBranch(descending, 0.18, position(0.91, 0.22), position(1.04, 0.32), [
+      position(1.19, 0.4, 0.18), position(0.99, 0.68, 0.32),
+    ]);
+    addLobarBranch(descending, 0.49, position(0.96, -0.34), position(1.02, -0.65), [
+      position(1.23, -0.78, 0.18), position(1.01, -1.04, 0.32),
+    ]);
+    addLobarBranch(descending, 0.87, position(0.74, -0.9), position(0.68, -0.96), [
+      position(0.52, -1, 0.16), position(0.89, -1.08, 0.3),
+    ]);
+  }
+  return branches;
+}
+
+const bronchialTree = createBronchialTree();
+const branchWeights = bronchialTree.map(branch => (
+  Math.hypot(...branch.start.map((v, i) => v - branch.control[i])) +
+  Math.hypot(...branch.control.map((v, i) => v - branch.end[i]))
+) * Math.sqrt(branch.radius));
+const totalBranchWeight = branchWeights.reduce((sum, weight) => sum + weight, 0);
+
+function sampleAirway(random: () => number, particleIndex: number): Position {
+  let weight = random() * totalBranchWeight;
+  let index = 0;
+  while (index < bronchialTree.length - 1 && weight > branchWeights[index]) {
+    weight -= branchWeights[index++];
+  }
+  const tracheal = particleIndex % 15 === 0;
+  const branch = bronchialTree[tracheal ? 0 : index];
+  const t = tracheal ? ((Math.floor(particleIndex / 15) % 12) + random()) / 12 : random();
+  const center = pointOnBranch(branch, t);
+  const dx = 2 * ((1 - t) * (branch.control[0] - branch.start[0]) + t * (branch.end[0] - branch.control[0]));
+  const dy = 2 * ((1 - t) * (branch.control[1] - branch.start[1]) + t * (branch.end[1] - branch.control[1]));
+  const length = Math.hypot(dx, dy);
+  const angle = random() * Math.PI * 2;
+  const radius = branch.radius * (1 - t * 0.5) * Math.sqrt(random());
+  return [
+    center[0] - (dy / length) * radius * Math.cos(angle),
+    center[1] + (dx / length) * radius * Math.cos(angle),
+    center[2] + radius * Math.sin(angle),
+  ];
+}
+
 export function createLungParticles(count: number): LungParticle[] {
   let seed = 675;
   const random = () => {
@@ -82,27 +190,14 @@ export function createLungParticles(count: number): LungParticle[] {
 
   const particles: LungParticle[] = [];
   for (let i = 0; i < count; i++) {
-    const airway = i % 7 === 0;
+    const airway = i % 3 === 0;
     const side = random() > 0.5 ? 1 : -1;
     let x: number;
     let y: number;
     let z: number;
 
     if (airway) {
-      const t = random();
-      if (i % 3 === 0) {
-        x = (random() - 0.5) * 0.12;
-        y = 0.57 + t * 1.48;
-      } else {
-        const branch = i % 4;
-        const endX = [0.93, 1.13, 0.98, 0.68][branch];
-        const endY = [0.96, 0.15, -0.63, -0.98][branch];
-        x = side * (0.04 + endX * t);
-        y = 0.63 + (endY - 0.63) * t - Math.sin(t * Math.PI) * 0.16;
-        x += (random() - 0.5) * 0.06;
-        y += (random() - 0.5) * 0.06;
-      }
-      z = 0.2 + (random() - 0.5) * 0.12;
+      [x, y, z] = sampleAirway(random, i);
     } else {
       do {
         x = 0.2 + random() * 1.34;

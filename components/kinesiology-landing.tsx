@@ -15,7 +15,6 @@ import { Reveal } from "@/components/reveal";
 import { ServiceExplorer } from "@/components/service-explorer";
 import { buildWhatsAppUrl } from "@/lib/contact";
 import {
-  contactDetails,
   education,
   faqs,
   whatsappUrl,
@@ -27,12 +26,6 @@ const developerWhatsappUrl = buildWhatsAppUrl(
 );
 
 export function KinesiologyLanding() {
-  const availableContactDetails = [
-    contactDetails.address,
-    contactDetails.email,
-    contactDetails.hours,
-  ].filter(Boolean);
-
   return (
     <>
       <Navigation whatsappUrl={whatsappUrl} />
@@ -53,7 +46,7 @@ export function KinesiologyLanding() {
                 <h1 id="hero-title">Respirar mejor cambia tu manera de vivir.</h1>
                 <p className="hero-summary">
                   Atención especializada para recuperar capacidad, autonomía y
-                  confianza en cada etapa de tu salud respiratoria.
+                  confianza en cada etapa de las enfermedades respiratorias crónicas.
                 </p>
                 <div className="hero-actions">
                   <a
@@ -87,7 +80,7 @@ export function KinesiologyLanding() {
                 <h2>Un profesional que entiende todo el recorrido.</h2>
                 <p>
                   La salud respiratoria atraviesa distintos escenarios. Conocerlos
-                  permite acompañar el presente y anticipar el cuidado que sigue.
+                  permite acompañar el presente y anticipar los cuidados futuros.
                 </p>
               </Reveal>
               <Reveal className="professional-portrait" delay={0.1}>
@@ -105,14 +98,25 @@ export function KinesiologyLanding() {
         </section>
 
         <section className="approach-section section-shell">
-          <Reveal className="brand-figure">
-            <div className="brand-figure-image">
-              <Image
-                src="/brand/adrian-ludovico-logo.jpeg"
-                alt="Logo de Adrián Ludovico, corredor dentro de pulmones"
-                fill
-                sizes="(max-width: 760px) 88vw, 38vw"
-              />
+          <Reveal className="professional-identity">
+            <div className="brand-figure">
+              <div className="brand-figure-image">
+                <Image
+                  src="/brand/adrian-ludovico-logo.jpeg"
+                  alt="Logo de Adrián Ludovico, corredor dentro de pulmones"
+                  fill
+                  sizes="(max-width: 760px) 88vw, 38vw"
+                />
+              </div>
+            </div>
+            <div className="profile-card">
+              <div>
+                <strong>Lic. Adrián Javier Ludovico</strong>
+                <span>Kinesiólogo Cardiorrespiratorio</span>
+              </div>
+              <p>Matrícula profesional N.º 675</p>
+              <p>Registro de especialista: RE N.º XVII, F 002, L1</p>
+              <p>Miembro de la Asociación Argentina de Medicina Respiratoria</p>
             </div>
           </Reveal>
           <Reveal className="approach-copy" delay={0.1}>
@@ -142,7 +146,7 @@ export function KinesiologyLanding() {
               <h2>Cómo cuidamos tu salud respiratoria.</h2>
               <p>
                 Seis áreas de atención conectadas por un mismo criterio clínico:
-                entender qué necesitás hoy y cómo sostenerlo mañana.
+                entender qué necesitás en todo momento.
               </p>
             </Reveal>
             <ServiceExplorer />
@@ -156,15 +160,16 @@ export function KinesiologyLanding() {
               La actualización continua es parte del cuidado. Permite tomar
               decisiones más seguras y adaptar las herramientas a cada etapa.
             </p>
-            <div className="profile-card">
+            <article className="education-item education-continuous">
+              <CheckCircle size={28} weight="fill" aria-hidden="true" />
               <div>
-                <strong>Lic. Adrián Javier Ludovico</strong>
-                <span>Kinesiólogo Cardiorrespiratorio</span>
+                <h3>Capacitación permanente</h3>
+                <p>
+                  Participación continua en congresos, jornadas académicas y
+                  cursos de actualización en rehabilitación respiratoria.
+                </p>
               </div>
-              <p>Matrícula profesional N.º 675</p>
-              <p>Registro de especialista: RE N.º XVII, F 002, L1</p>
-              <p>Miembro de la Asociación Argentina de Medicina Respiratoria</p>
-            </div>
+            </article>
           </Reveal>
 
           <div className="education-list">
@@ -179,18 +184,6 @@ export function KinesiologyLanding() {
                 </article>
               </Reveal>
             ))}
-            <Reveal>
-              <article className="education-item education-continuous">
-                <CheckCircle size={28} weight="fill" aria-hidden="true" />
-                <div>
-                  <h3>Capacitación permanente</h3>
-                  <p>
-                    Participación continua en congresos, jornadas académicas y
-                    cursos de actualización en rehabilitación respiratoria.
-                  </p>
-                </div>
-              </article>
-            </Reveal>
           </div>
         </section>
 
@@ -237,14 +230,10 @@ export function KinesiologyLanding() {
             </Reveal>
 
             <div className="contact-meta">
-              {availableContactDetails.length > 0 ? (
-                availableContactDetails.map((detail) => <p key={detail}>{detail}</p>)
-              ) : (
-                <p>
-                  Los datos de consultorio y horarios se incorporarán cuando sean
-                  confirmados.
-                </p>
-              )}
+              <p>
+                Consultá horarios de atención y disponibilidad de turnos por
+                WhatsApp.
+              </p>
             </div>
           </div>
         </section>
